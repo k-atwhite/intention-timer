@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Intention Timer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>INTENTION TIMER</h1>
+    </header>
+    <main>
+      <section class="left-box">
+        <h2>New Activity</h2>
+        <div class="input-box">
+          <h3>Select a category:</h3>
+          <section class="btn-section">
+            <button class="activity-btn" id="study-btn" type="button" name="button">Study</button>
+            <button class="activity-btn" id="meditate-btn" type="button" name="button">Meditate</button>
+            <button class="activity-btn" id="exercise-btn" type="button" name="button">Exercise</button>
+          </section>
+          <h3>What would you like to accomplish during this time?</h3>
+          <input type="text" value="" id="accomplishment-input">
+          <h3>Minutes</h3>
+          <input type="text" value="" id="minutes-input">
+          <h3>Seconds</h3>
+          <input type="text" value="" id="seconds-input">
+          <button class="start-btn" type="button" name="button">START ACTIVITY</button>
+        </div>
+      </section>
+      <section class="right-box">
+        <h2>Past Activities</h2>
+        <div class="past-activities">
+          <p>You haven't logged any activities yet. Complete the form to the left to get started!</p>
+        </div>
+      </section>
+    </main>
+    <script src="Activity.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
