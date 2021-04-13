@@ -20,8 +20,40 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-weight: lighter;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 1.5%;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
 header {
   background-color: #46424D;
   padding: 5px;
   text-align: center;
+}
+
+.input-box {
+  background-color: #46424D;
+  padding: 17%;
+  width: 100%;
+
+}
+
+.left-box {
+  display: block;
+  float: left;
+  margin: 2%;
+  width: 45%;
+}
+
+
+.right-box {
+  display: block;
+  float: right;
+  margin: 2%;
 }
