@@ -50,6 +50,13 @@ header {
   width: 100%;
 }
 
+.btn-logo {
+  background-color: #46424D;
+  display: block;
+  width: 30px;
+  margin: 0 auto;
+}
+
 .left-box {
   display: block;
   float: left;
