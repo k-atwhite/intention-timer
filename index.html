@@ -32,10 +32,16 @@
           </section>
           <h3>What would you like to accomplish during this time?</h3>
           <input type="text" value="" id="accomplishment-input">
-          <h3>Minutes</h3>
-          <input type="text" value="" id="minutes-input">
-          <h3>Seconds</h3>
-          <input type="text" value="" id="seconds-input">
+          <div class="time-box">
+            <div class="minutes-box">
+              <h3>Minutes</h3>
+              <input type="text" value="" id="minutes-input" class="time-input">
+            </div>
+            <div class="seconds-box">
+              <h3>Seconds</h3>
+              <input type="text" value="" id="seconds-input" class="time-input">
+            </div>
+          </div>
           <button class="start-btn" type="button" name="button">START ACTIVITY</button>
         </div>
       </section>
@@ -43,7 +49,8 @@
       <section class="right-box">
         <h2>Past Activities</h2>
         <div class="past-activities">
-          <p>You haven't logged any activities yet. Complete the form to the left to get started!</p>
+          <p>You haven't logged any activities yet.</p>
+          <p>Complete the form to the left to get started!</p>
         </div>
       </section>
     </main>
