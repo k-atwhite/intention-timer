@@ -12,11 +12,15 @@ Error: #EFB7EC
 /* * {
   border: 1px solid blue;
 } */
+html {
+  height: 100%;
+}
 
 body {
   background-color: #2B2733;
   color: #FFF;
   font-family: 'Montserrat', sans-serif;
+  height: 100%;
   margin: 0;
 }
 
@@ -39,9 +43,11 @@ header {
 
 .input-box {
   background-color: #46424D;
+  box-shadow: 2px solid #26222D;
+  border-radius: 5px;
+  height: 425px;
   padding: 17%;
   width: 100%;
-
 }
 
 .left-box {
@@ -53,7 +59,10 @@ header {
 
 
 .right-box {
+  border-left: 2px solid #46424D;
   display: block;
   float: right;
+  height: 100%;
   margin: 2%;
+  width: 35%;
 }
