@@ -75,7 +75,6 @@ input {
   width: 150px;
 }
 
-
 .input-label {
   margin-top: 10%;
 }
@@ -83,6 +82,7 @@ input {
 .btn-section {
   display: flex;
   justify-content: space-between;
+}
 
 .study-active {
   color: #B3FD78;
