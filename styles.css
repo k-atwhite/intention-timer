@@ -75,6 +75,7 @@ input {
   width: 150px;
 }
 
+
 .input-label {
   margin-top: 10%;
 }
@@ -82,6 +83,20 @@ input {
 .btn-section {
   display: flex;
   justify-content: space-between;
+
+.study-active {
+  color: #B3FD78;
+  border: 2px solid #B3FD78;
+}
+
+.meditate-active {
+  color: #C278FD;
+  border: 2px solid #C278FD;
+}
+
+.exercise-active {
+  color: #FD8078;
+  border: 2px solid #FD8078;
 }
 
 .btn-logo {
