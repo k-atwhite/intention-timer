@@ -26,6 +26,12 @@ body {
   min-height: 100%;
 }
 
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 2%;
+}
+
 h1 {
   font-weight: lighter;
 }
@@ -39,7 +45,7 @@ h2 {
 
 header {
   background-color: #46424D;
-  padding: 5px;
+  padding: 2px;
   text-align: center;
 }
 
@@ -47,14 +53,15 @@ input {
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #FFF;
+  width: 100%;
 }
 
 .input-box {
   background-color: #46424D;
-  box-shadow: 2px solid #26222D;
+  box-shadow: 8px 8px #26222D;
   border-radius: 5px;
-  height: 425px;
-  padding: 10% 17%;
+  height: 500px;
+  padding: 5% 17% 8%;
   width: 100%;
 }
 
@@ -68,6 +75,15 @@ input {
   width: 150px;
 }
 
+.input-label {
+  margin-top: 10%;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn-logo {
   background-color: #46424D;
   display: block;
@@ -75,28 +91,28 @@ input {
   margin: 0 auto;
 }
 
+.time-input {
+  width: 300px;
+}
+
+.time-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7%;
+}
+
 .start-btn {
   border-radius: 5px;
   border: none;
   color: #46424D;
   font-size: 20px;
+  margin: 10% 68%;
   padding: 9px;
   width: 225px;
 }
 
-/* .minutes-box {
-  float: left;
-}
-
-.seconds-box {
-  float: right;
-} */
-
 .left-box {
-  display: block;
-  float: left;
-  margin: 2%;
-  width: 48%;
+  width: 49%;
 }
 
 .vertical-line {
@@ -109,12 +125,9 @@ input {
 }
 
 .right-box {
-  display: block;
-  float: right;
   height: 100%;
-  margin: 2%;
   padding-left: 1.6%;
-  width: 28%;
+  width: 29%;
 }
 
 .past-activities {
