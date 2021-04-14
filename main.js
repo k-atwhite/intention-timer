@@ -46,6 +46,7 @@ function changeButtonColor(event) {
 // Try using number.isInteger
 // or isNaN
 // minutesInput.value
+// Ask Evan
 
 function checkInputValues() {
   if (!accomplishInput.value) {

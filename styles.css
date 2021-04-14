@@ -129,6 +129,20 @@ input[type=number] {
   margin-top: 7%;
 }
 
+.warning-box {
+  margin-top: 2%;
+}
+
+.warning-img {
+  display: inline;
+  width: 20px;
+}
+
+.warning-text {
+  color: #EFB7EC;
+  display:inline;
+}
+
 /* make more responsive */
 .start-btn {
   border-radius: 5px;
