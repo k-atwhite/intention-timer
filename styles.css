@@ -68,6 +68,21 @@ input {
   width: 150px;
 }
 
+.study-active {
+  color: #B3FD78;
+  border: 2px solid #B3FD78;
+}
+
+.meditate-active {
+  color: #C278FD;
+  border: 2px solid #C278FD;
+}
+
+.exercise-active {
+  color: #FD8078;
+  border: 2px solid #FD8078;
+}
+
 .btn-logo {
   background-color: #46424D;
   display: block;
