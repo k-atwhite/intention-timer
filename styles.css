@@ -54,6 +54,17 @@ input {
   border: none;
   border-bottom: 1px solid #FFF;
   width: 100%;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .input-box {
