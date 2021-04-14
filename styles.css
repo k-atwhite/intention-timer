@@ -91,6 +91,7 @@ input {
   margin: 0 auto;
 }
 
+/* make more responsive */
 .time-input {
   width: 300px;
 }
@@ -101,6 +102,7 @@ input {
   margin-top: 7%;
 }
 
+/* make more responsive */
 .start-btn {
   border-radius: 5px;
   border: none;
