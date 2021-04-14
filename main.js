@@ -7,10 +7,25 @@ var exerciseBtn = document.querySelector('#exercise-btn');
 var studyImg = document.querySelector('#study-img');
 var meditateImg = document.querySelector('#meditate-img');
 var exerciseImg = document.querySelector('#exercise-img');
+//Input Values
+var accomplishValue = document.querySelector('#accomplishment-input');
+var minutesValue = document.querySelector('#minutes-input');
+var secondsValue = document.querySelector('#seconds-input');
 
+//button does not hear 'click' on logo
+btnSection.addEventListener("click", function(event) {
+  changeButtonColor(event);
+});
 
-// btnSection.addEventListener("click", function(event) {
-
-function changeButtonColor(button, cssClass) {
-  button.classList.add(cssClass);
+function changeButtonColor(event) {
+    if (event.target.id === 'study-btn' && 'study-img') {
+      studyBtn.classList.add('study-active');
+      studyImg.src = 'assets/study-active.svg';
+  } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
+      meditateBtn.classList.add('meditate-active');
+      meditateImg.src = 'assets/meditate-active.svg';
+  } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
+      exerciseBtn.classList.add('exercise-active');
+      exerciseImg.src = 'assets/exercise-active.svg';
+  }
 }
