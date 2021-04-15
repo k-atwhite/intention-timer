@@ -24,7 +24,7 @@ btnSection.addEventListener('click', function(event) {
   changeButtonColor(event);
 });
 
-startActivityBtn.addEventListener('click', startActivity);
+startActivityBtn.addEventListener('click', checkInputValues);
 
 // anonymous function contains conditional
 // have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
@@ -54,28 +54,22 @@ function changeButtonColor(event) {
 // minutesInput.value
 // Ask Evan
 
+
 function checkInputValues() {
-  var canActivityStart = false;
   if (!accomplishmentInput.value) {
     accomplishmentWarning.classList.remove('hidden');
-  } else if (!minutesInput.value) {
+  } else if (!minutesInput.value && isNan(minutesInput.value)) {
     timeWarning.classList.remove('hidden');
-  } else if (!secondsInput.value) {
+  } else if (!secondsInput.value && isNan(secondsInput.value)) {
     timeWarning.classList.remove('hidden');
   } else {
-    canActivityStart = true;
+    startActivity();
   }
-  return canActivityStart;
 }
 
 
 function startActivity() {
   var activityCategory = currentActivity;
-  var canActivityStart = checkInputValues();
-  if (canActivityStart) {
-    currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
-    savedActivities.push(currentActivity);
-    console.log(currentActivity);
-    console.log(savedActivities);
-  }
+  currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
+  savedActivities.push(currentActivity);
 }
