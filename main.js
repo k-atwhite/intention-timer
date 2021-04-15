@@ -8,7 +8,7 @@ var studyImg = document.querySelector('#study-img');
 var meditateImg = document.querySelector('#meditate-img');
 var exerciseImg = document.querySelector('#exercise-img');
 //Input Values
-var accomplishInput = document.querySelector('#accomplishment-input');
+var accomplishmentInput = document.querySelector('#accomplishment-input');
 var minutesInput = document.querySelector('#minutes-input');
 var secondsInput = document.querySelector('#seconds-input');
 
@@ -28,7 +28,7 @@ startActivityBtn.addEventListener('click', startActivity);
 
 // anonymous function contains conditional
 // have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
-// if accomplishInput does not have value, remove hidden from warning
+// if accomplishmentInput does not have value, remove hidden from warning
 // else if minutes input does not have value || var isMinuteNumber is false
 // same for seconds
 
@@ -56,7 +56,7 @@ function changeButtonColor(event) {
 
 function checkInputValues() {
   var canActivityStart = false;
-  if (!accomplishInput.value) {
+  if (!accomplishmentInput.value) {
     accomplishmentWarning.classList.remove('hidden');
   } else if (!minutesInput.value) {
     timeWarning.classList.remove('hidden');
@@ -73,7 +73,7 @@ function startActivity() {
   var activityCategory = currentActivity;
   var canActivityStart = checkInputValues();
   if (canActivityStart) {
-    currentActivity = new Activity(activityCategory, 'description', 5, 30);
+    currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
     savedActivities.push(currentActivity);
     console.log(currentActivity);
     console.log(savedActivities);
