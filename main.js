@@ -16,6 +16,9 @@ var startActivityBtn = document.querySelector('#startActivityBtn');
 var accomplishmentWarning = document.querySelector('#accomplishmentWarning');
 var timeWarning = document.querySelector('#timeWarning');
 
+var leftBox = document.querySelector('#leftBox');
+var timerBox = document.querySelector('#timerBox');
+
 var currentActivity;
 var savedActivities = [];
 
@@ -58,18 +61,37 @@ function changeButtonColor(event) {
 function checkInputValues() {
   if (!accomplishmentInput.value) {
     accomplishmentWarning.classList.remove('hidden');
-  } else if (!minutesInput.value && isNaN(minutesInput.value)) {
+  } else if (!minutesInput.value || isNaN(minutesInput.value)) {
     timeWarning.classList.remove('hidden');
-  } else if (!secondsInput.value && isNaN(secondsInput.value)) {
+  } else if (!secondsInput.value || isNaN(secondsInput.value)) {
     timeWarning.classList.remove('hidden');
   } else {
     startActivity();
   }
 }
 
+// Two Boxes, one hidden...timer-box
+ // in new HTML hidden timer Box
+ // within container we have
+ // h2 input value of accomplishment
+ // TIMER in minutes:seconds
+ // button 50% border-radius, START in middle
+    // border is purple, text white
+// event listener for start button in new timer-box
+// Hide input box on startActivity
+  //maybe call other function to style all these elements
+// another function is called
+//
+
 
 function startActivity() {
   var activityCategory = currentActivity;
   currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
   savedActivities.push(currentActivity);
+  displayTimerBox();
+}
+
+function displayTimerBox() {
+  leftBox.classList.add('hidden');
+  timerBox.classList.remove('hidden');
 }
