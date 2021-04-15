@@ -17,6 +17,14 @@ class Activity {
   }
 
   saveToStorage() {
-    
+
   }
 }
+
+/* Create undefineed global variable
+currentActivity
+THEN, instantiate a new activity class
+the arguments will be 
+
+create var savedActivities = []
+*/
