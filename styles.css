@@ -9,9 +9,6 @@ Exercise: #FD8078
 Error: #EFB7EC
 */
 
-/* * {
-  border: 1px solid blue;
-} */
 html {
   height: 100%;
   min-height: 100%;
@@ -37,24 +34,36 @@ h1 {
 }
 
 h2 {
-  margin: 0;
-  margin-bottom: 1.5%;
   font-size: 30px;
   font-weight: lighter;
+  margin: 0;
+  margin-bottom: 1.5%;
 }
 
 header {
   background-color: #46424D;
   padding: 2px;
   text-align: center;
+  z-index: 1;
 }
 
 input {
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #FFF;
+  outline: none;
   width: 100%;
   outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
@@ -71,7 +80,6 @@ input[type=number] {
   background-color: #46424D;
   box-shadow: 8px 8px #26222D;
   border-radius: 5px;
-  height: 500px;
   padding: 5% 17% 8%;
   width: 100%;
 }
@@ -97,28 +105,27 @@ input[type=number] {
 }
 
 .study-active {
-  color: #B3FD78;
   border: 2px solid #B3FD78;
+  color: #B3FD78;
 }
 
 .meditate-active {
-  color: #C278FD;
   border: 2px solid #C278FD;
+  color: #C278FD;
 }
 
 .exercise-active {
-  color: #FD8078;
   border: 2px solid #FD8078;
+  color: #FD8078;
 }
 
 .btn-logo {
   background-color: #46424D;
   display: block;
-  width: 30px;
   margin: 0 auto;
+  width: 30px;
 }
 
-/* make more responsive */
 .time-input {
   width: 300px;
 }
@@ -140,16 +147,20 @@ input[type=number] {
 
 .warning-text {
   color: #EFB7EC;
-  display:inline;
+  display: inline;
 }
 
-/* make more responsive */
+.start-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .start-btn {
   border-radius: 5px;
   border: none;
   color: #46424D;
   font-size: 20px;
-  margin: 10% 68%;
+  margin-top: 8%;
   padding: 9px;
   width: 225px;
 }
@@ -159,12 +170,13 @@ input[type=number] {
 }
 
 .vertical-line {
-  width: 3px;
   background-color: #46424D;
-  position: absolute;
-  top: 0;
   bottom: 0;
   left: 68%;
+  position: absolute;
+  top: 0;
+  width: 3px;
+  z-index: -1;
 }
 
 .right-box {
@@ -175,6 +187,18 @@ input[type=number] {
 
 .past-activities {
   text-align: center;
+}
+
+@media only screen and (max-width: 1300px) {
+  .time-input {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .time-input {
+    width: 100px;
+  }
 }
 
 .hidden {
