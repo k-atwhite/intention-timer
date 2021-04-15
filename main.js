@@ -58,9 +58,9 @@ function changeButtonColor(event) {
 function checkInputValues() {
   if (!accomplishmentInput.value) {
     accomplishmentWarning.classList.remove('hidden');
-  } else if (!minutesInput.value && isNan(minutesInput.value)) {
+  } else if (!minutesInput.value && isNaN(minutesInput.value)) {
     timeWarning.classList.remove('hidden');
-  } else if (!secondsInput.value && isNan(secondsInput.value)) {
+  } else if (!secondsInput.value && isNaN(secondsInput.value)) {
     timeWarning.classList.remove('hidden');
   } else {
     startActivity();
