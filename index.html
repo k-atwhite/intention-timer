@@ -32,17 +32,27 @@
           </section>
           <h3 class="input-label">What would you like to accomplish during this time?</h3>
           <input type="text" value="" id="accomplishment-input">
+          <div class="hidden warning-box" id="accomplishmentWarning">
+            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+            <p class="warning-text">A description is required.</p>
+          </div>
           <div class="time-box">
             <div class="minutes-box">
               <h3 class="input-label">Minutes</h3>
-              <input type="text" value="" id="minutes-input" class="time-input">
+              <input type="number" value="" id="minutes-input" class="time-input">
             </div>
             <div class="seconds-box">
               <h3 class="input-label">Seconds</h3>
-              <input type="text" value="" id="seconds-input" class="time-input">
+              <input type="number" value="" id="seconds-input" class="time-input">
             </div>
           </div>
-          <button class="start-btn" type="button" name="button">START ACTIVITY</button>
+          <div class="hidden warning-box" id="timeWarning">
+            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+            <p class="warning-text">Minutes and seconds are required.</p>
+          </div>
+          <div class="start-box">
+            <button class="start-btn" id="startActivityBtn" type="button" name="button">START ACTIVITY</button>
+          </div>
         </div>
       </section>
       <div class="vertical-line"></div>
