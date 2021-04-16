@@ -17,6 +17,6 @@ class Activity {
   }
 
   saveToStorage() {
-    
+
   }
 }

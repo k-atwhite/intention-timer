@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Intention Timer</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -12,9 +12,9 @@
       <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="left-box">
+      <section class="left-box" id="leftBox">
         <h2>New Activity</h2>
-        <div class="input-box">
+        <div class="input-box" id="">
           <h3>Select a category:</h3>
           <section class="btn-section">
             <button class="activity-btn" id="study-btn" type="button" name="button">
@@ -30,6 +30,10 @@
               Exercise
             </button>
           </section>
+          <div class="hidden warning-box" id="categoryWarning">
+            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+            <p class="warning-text">Please choose a category.</p>
+          </div>
           <h3 class="input-label">What would you like to accomplish during this time?</h3>
           <input type="text" value="" id="accomplishment-input">
           <div class="hidden warning-box" id="accomplishmentWarning">
@@ -53,6 +57,12 @@
           <div class="start-box">
             <button class="start-btn" id="startActivityBtn" type="button" name="button">START ACTIVITY</button>
           </div>
+        </div>
+      </section>
+      <section class="timer-box hidden" id="timerBox">
+        <h2>Current Activity</h2>
+        <div class="input-box timer-input-box" id="timerInputBox">
+          <button class="start-timer-btn" id="startTimerBtn" type="button" name="button">START</button>
         </div>
       </section>
       <div class="vertical-line"></div>
