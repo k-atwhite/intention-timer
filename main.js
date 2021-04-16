@@ -16,6 +16,7 @@ var secondsInput = document.querySelector('#seconds-input');
 var startActivityBtn = document.querySelector('#startActivityBtn');
 var accomplishmentWarning = document.querySelector('#accomplishmentWarning');
 var timeWarning = document.querySelector('#timeWarning');
+var categoryWarning = document.querySelector('#categoryWarning');
 
 var leftBox = document.querySelector('#leftBox');
 var timerBox = document.querySelector('#timerBox');
@@ -45,14 +46,36 @@ function changeButtonColor(event) {
       studyBtn.classList.add('study-active');
       studyImg.src = 'assets/study-active.svg';
       currentActivity = "Study";
+      unselectButton();
   } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
       meditateBtn.classList.add('meditate-active');
       meditateImg.src = 'assets/meditate-active.svg';
       currentActivity = "Meditate";
+      unselectButton();
   } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
       exerciseBtn.classList.add('exercise-active');
       exerciseImg.src = 'assets/exercise-active.svg';
       currentActivity = "Exercise";
+      unselectButton();
+  }
+}
+
+function unselectButton() {
+  if (currentActivity === "Study") {
+    meditateBtn.classList.remove('meditate-active');
+    meditateImg.src = 'assets/meditate.svg';
+    exerciseBtn.classList.remove('exercise-active');
+    exerciseImg.src = 'assets/exercise.svg';
+  } else if (currentActivity === "Meditate") {
+    studyBtn.classList.remove('study-active');
+    studyImg.src = 'assets/study.svg';
+    exerciseBtn.classList.remove('exercise-active');
+    exerciseImg.src = 'assets/exercise.svg';
+  } else {
+    studyBtn.classList.remove('study-active');
+    studyImg.src = 'assets/study.svg';
+    meditateBtn.classList.remove('meditate-active');
+    meditateImg.src = 'assets/meditate.svg';
   }
 }
 
@@ -69,6 +92,8 @@ function checkInputValues() {
     timeWarning.classList.remove('hidden');
   } else if (!secondsInput.value || isNaN(secondsInput.value)) {
     timeWarning.classList.remove('hidden');
+  } else if (!currentActivity) {
+    categoryWarning.classList.remove('hidden');
   } else {
     startActivity();
   }
