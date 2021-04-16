@@ -3,6 +3,7 @@ var btnSection = document.querySelector('.btn-section');
 var studyBtn = document.querySelector('#study-btn');
 var meditateBtn = document.querySelector('#meditate-btn');
 var exerciseBtn = document.querySelector('#exercise-btn');
+var startTimerBtn = document.querySelector('#startTimerBtn');
 //Button Imgs
 var studyImg = document.querySelector('#study-img');
 var meditateImg = document.querySelector('#meditate-img');
@@ -18,6 +19,7 @@ var timeWarning = document.querySelector('#timeWarning');
 
 var leftBox = document.querySelector('#leftBox');
 var timerBox = document.querySelector('#timerBox');
+var timerInputBox = document.querySelector('#timerInputBox');
 
 var currentActivity;
 var savedActivities = [];
@@ -28,6 +30,8 @@ btnSection.addEventListener('click', function(event) {
 });
 
 startActivityBtn.addEventListener('click', checkInputValues);
+
+startTimerBtn.addEventListener('click', startTimer);
 
 // anonymous function contains conditional
 // have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
@@ -94,4 +98,24 @@ function startActivity() {
 function displayTimerBox() {
   leftBox.classList.add('hidden');
   timerBox.classList.remove('hidden');
+  timerInputBox.insertAdjacentHTML('afterbegin', `
+  <h3>${currentActivity.description}</h3>`);
 }
+
+// var startMinutes = minutesInput.value;
+// var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds
+// var countdown = document.querySelector('#timer');
+//
+// function startTimer() {
+//   setInterval(updateCountdown, 1000);
+//   updateCountdown();
+// }
+//
+// function updateCountdown() {
+//   countdown.innerHTML = '';
+//   var minutes = Math.round(totalTime / 60);
+//   var seconds = totalTime % 60;
+//   seconds = seconds < 10 ? '0' + seconds : seconds;
+//   countdown.innerHTML = `${minutes}:${seconds}`;
+//   totalTime--
+// }
