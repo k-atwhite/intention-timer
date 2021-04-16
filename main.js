@@ -99,7 +99,8 @@ function displayTimerBox() {
   leftBox.classList.add('hidden');
   timerBox.classList.remove('hidden');
   timerInputBox.insertAdjacentHTML('afterbegin', `
-  <h3>${currentActivity.description}</h3>`);
+  <h3>${currentActivity.description}</h3>
+  <p>${currentActivity.minutes}:${currentActivity.seconds}</p>`);
 }
 
 // var startMinutes = minutesInput.value;
