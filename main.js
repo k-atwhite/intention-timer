@@ -4,6 +4,8 @@ var studyBtn = document.querySelector('#study-btn');
 var meditateBtn = document.querySelector('#meditate-btn');
 var exerciseBtn = document.querySelector('#exercise-btn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
+var timer = document.querySelector('#timer');
+
 //Button Imgs
 var studyImg = document.querySelector('#study-img');
 var meditateImg = document.querySelector('#meditate-img');

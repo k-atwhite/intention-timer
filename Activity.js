@@ -9,19 +9,19 @@ class Activity {
   }
 
   startTimer() {
-    var startMinutes = minutesInput.value;
-    var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds
+    var totalSeconds = (this.minutes * 60) + this.seconds; //to get total seconds
     var timer = document.querySelector('#timer');
-    console.log("Is this linked up?")
-  //   setInterval(updateCountdown, 1000);
-  //   updateCountdown();
-  //   function updateCountdown() {
-  //     // countdown.innerHTML = '';
-  //     var minutes = Math.round(totalTime / 60);
-  //     var seconds = totalTime % 60;
-  //     seconds = seconds < 10 ? '0' + seconds : seconds;
-  //     countdown.innerHTML = `${minutes}:${seconds}`;
-  //
+    // this.updateTimer(totalSeconds, timer);
+    setInterval(this.updateTimer(totalSeconds, timer), 1000);
+  }
+
+  updateTimer(totalSeconds, timer) {
+    timer.innerHTML = '';
+    var minutes = Math.round(totalSeconds / 60);
+    var seconds = totalSeconds % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    timer.innerHTML = `${minutes}:${seconds}`;
+    totalSeconds--
   }
 
   markComplete() {
@@ -35,7 +35,7 @@ class Activity {
 
 
 // var startMinutes = minutesInput.value;
-// var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds
+// var totalSeconds = (startMinutes * 60) + secondsInput.value; //to get total seconds
 // var countdown = document.querySelector('#timer');
 
 // function startTimer() {
