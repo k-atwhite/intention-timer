@@ -31,7 +31,7 @@ btnSection.addEventListener('click', function(event) {
 
 startActivityBtn.addEventListener('click', checkInputValues);
 
-startTimerBtn.addEventListener('click', startTimer);
+startTimerBtn.addEventListener('click', startActivity);
 
 // anonymous function contains conditional
 // have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
@@ -98,10 +98,26 @@ function startActivity() {
 function displayTimerBox() {
   leftBox.classList.add('hidden');
   timerBox.classList.remove('hidden');
+  changeTimerBorder();
   timerInputBox.insertAdjacentHTML('afterbegin', `
-  <h3>${currentActivity.description}</h3>
-  <p>${currentActivity.minutes}:${currentActivity.seconds}</p>`);
+  <h3 class="activity-description">${currentActivity.description}</h3>
+  <p class="activity-time">${currentActivity.minutes}:${currentActivity.seconds}</p>`);
+
 }
+
+function changeTimerBorder() {
+  if (currentActivity.category === "Study") {
+    startTimerBtn.classList.add('study-active');
+  } else if (currentActivity.category === "Meditate") {
+    startTimerBtn.classList.add('meditate-active');
+  } else if (currentActivity.category === "Exercise") {
+    startTimerBtn.classList.add('exercise-active');
+  }
+}
+
+
+
+
 
 // var startMinutes = minutesInput.value;
 // var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds

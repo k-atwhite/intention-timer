@@ -21,6 +21,7 @@ body {
   height: 100%;
   margin: 0;
   min-height: 100%;
+  font-weight: 400;
 }
 
 main {
@@ -38,6 +39,10 @@ h2 {
   font-weight: lighter;
   margin: 0;
   margin-bottom: 1.5%;
+}
+
+h3 {
+  font-weight: 400;
 }
 
 header {
@@ -155,6 +160,23 @@ input[type=number] {
   justify-content: flex-end;
 }
 
+.timer-input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-description {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.activity-time {
+  font-size: 50px;
+  font-weight: 700;
+}
+
 .start-btn {
   border-radius: 5px;
   border: none;
@@ -167,7 +189,6 @@ input[type=number] {
 
 .start-timer-btn {
   background-color: transparent;
-  border: 2px solid #C278FD;
   border-radius: 50%;
   color: #FFF;
   font-size: 30px;
