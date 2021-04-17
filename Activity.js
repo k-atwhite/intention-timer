@@ -16,6 +16,7 @@ class Activity {
     var interval = setInterval(function() {
       if (timeRemaining === 0) {
         clearInterval(interval);
+        alert("Time is up!");
         // return completedActivity();
       }
       currentActivity.timePassed += 1;
