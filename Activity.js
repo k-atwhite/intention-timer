@@ -2,30 +2,30 @@ class Activity {
   constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
-    this.minutes = minutes;
-    this.seconds = seconds;
+    this.minutes = parseInt(minutes);
+    this.seconds = parseInt(seconds);
+    this.totalSeconds = (this.minutes * 60) + this.seconds;
+    this.timePassed = 0;
     this.completed = false;
     this.id = Date.now();
   }
 
   startTimer() {
-    var totalSeconds = (this.minutes * 60) + this.seconds; //to get total seconds
-    var timer = document.querySelector('#timer');
-    // this.updateTimer(totalSeconds, timer);
-    setInterval(this.updateTimer(totalSeconds, timer), 1000);
-  }
-
-  updateTimer(totalSeconds, timer) {
-    timer.innerHTML = '';
-    var minutes = Math.round(totalSeconds / 60);
-    var seconds = totalSeconds % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    timer.innerHTML = `${minutes}:${seconds}`;
-    totalSeconds--
+    startTimerBtn.setAttribute('disabled', true);
+    var timeRemaining;
+    var interval = setInterval(function() {
+      if (timeRemaining === 0) {
+        clearInterval(interval);
+        // return completedActivity();
+      }
+      currentActivity.timePassed += 1;
+      timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
+      timerOperation(timeRemaining);
+    }, 1000);
   }
 
   markComplete() {
-
+    this.completed = true;
   }
 
   saveToStorage() {
