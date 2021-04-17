@@ -5,6 +5,7 @@ var meditateBtn = document.querySelector('#meditate-btn');
 var exerciseBtn = document.querySelector('#exercise-btn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
 var timer = document.querySelector('#timer');
+var logActivityBtn = document.querySelector('#logActivityBtn');
 
 //Button Imgs
 var studyImg = document.querySelector('#study-img');
@@ -35,15 +36,12 @@ btnSection.addEventListener('click', function(event) {
 startActivityBtn.addEventListener('click', checkInputValues);
 
 startTimerBtn.addEventListener('click', function() {
-  currentActivity.startTimer()
+  currentActivity.startTimer();
 });
 
-// anonymous function contains conditional
-// have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
-// if accomplishmentInput does not have value, remove hidden from warning
-// else if minutes input does not have value || var isMinuteNumber is false
-// same for seconds
-
+logActivityBtn.addEventListener('click', function() {
+  currentActivity.saveToStorage();
+});
 
 function changeButtonColor(event) {
   if (event.target.id === 'study-btn' && 'study-img') {
@@ -83,12 +81,6 @@ function unselectButton() {
   }
 }
 
-// Try using number.isInteger
-// or isNaN
-// minutesInput.value
-// Ask Evan
-
-
 function checkInputValues() {
   if (!accomplishmentInput.value) {
     accomplishmentWarning.classList.remove('hidden');
@@ -102,20 +94,6 @@ function checkInputValues() {
     startActivity();
   }
 }
-
-// Two Boxes, one hidden...timer-box
- // in new HTML hidden timer Box
- // within container we have
- // h2 input value of accomplishment
- // TIMER in minutes:seconds
- // button 50% border-radius, START in middle
-    // border is purple, text white
-// event listener for start button in new timer-box
-// Hide input box on startActivity
-  //maybe call other function to style all these elements
-// another function is called
-//
-
 
 function startActivity() {
   var activityCategory = currentActivity;
@@ -151,22 +129,8 @@ function timerOperation(totalSeconds) {
   document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
 }
 
-// TIMER
-
-// var startMinutes = minutesInput.value;
-// var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds
-// var countdown = document.querySelector('#timer');
-//
-// function startTimer() {
-//   setInterval(updateCountdown, 1000);
-//   updateCountdown();
-// }
-//
-// function updateCountdown() {
-//   countdown.innerHTML = '';
-//   var minutes = Math.round(totalTime / 60);
-//   var seconds = totalTime % 60;
-//   seconds = seconds < 10 ? '0' + seconds : seconds;
-//   countdown.innerHTML = `${minutes}:${seconds}`;
-//   totalTime--
-// }
+function completedActivity() {
+  // make confetti fall on screen
+  startTimerBtn.innerText = "COMPLETE!";
+  logActivityBtn.classList.remove("hidden");
+}
