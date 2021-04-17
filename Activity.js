@@ -16,7 +16,9 @@ class Activity {
     var interval = setInterval(function() {
       if (timeRemaining === 0) {
         clearInterval(interval);
-        // return completedActivity();
+        currentActivity.markComplete();
+        completedActivity();
+        return;
       }
       currentActivity.timePassed += 1;
       timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
@@ -29,25 +31,6 @@ class Activity {
   }
 
   saveToStorage() {
-
+    
   }
 }
-
-
-// var startMinutes = minutesInput.value;
-// var totalSeconds = (startMinutes * 60) + secondsInput.value; //to get total seconds
-// var countdown = document.querySelector('#timer');
-
-// function startTimer() {
-//   setInterval(updateCountdown, 1000);
-//   updateCountdown();
-// }
-//
-// function updateCountdown() {
-//   countdown.innerHTML = '';
-//   var minutes = Math.round(totalTime / 60);
-//   var seconds = totalTime % 60;
-//   seconds = seconds < 10 ? '0' + seconds : seconds;
-//   countdown.innerHTML = `${minutes}:${seconds}`;
-//   totalTime--
-// }
