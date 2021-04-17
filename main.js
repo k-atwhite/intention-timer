@@ -143,6 +143,14 @@ function changeTimerBorder() {
   }
 }
 
+function timerOperation(totalSeconds) {
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = totalSeconds % 60;
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) seconds = `0${seconds}`;
+  document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
+}
+
 // TIMER
 
 // var startMinutes = minutesInput.value;
