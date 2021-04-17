@@ -11,6 +11,7 @@ var logActivityBtn = document.querySelector('#logActivityBtn');
 var studyImg = document.querySelector('#study-img');
 var meditateImg = document.querySelector('#meditate-img');
 var exerciseImg = document.querySelector('#exercise-img');
+
 //Input Values
 var accomplishmentInput = document.querySelector('#accomplishment-input');
 var minutesInput = document.querySelector('#minutes-input');
@@ -24,6 +25,10 @@ var categoryWarning = document.querySelector('#categoryWarning');
 var leftBox = document.querySelector('#leftBox');
 var timerBox = document.querySelector('#timerBox');
 var timerInputBox = document.querySelector('#timerInputBox');
+
+// Right Box
+var defaultActivityText = document.querySelector('#defaultActivityText');
+var pastActivitiesBox = document.querySelector('.past-activities');
 
 var currentActivity;
 var savedActivities = [];
@@ -131,6 +136,6 @@ function timerOperation(totalSeconds) {
 
 function completedActivity() {
   // make confetti fall on screen
-  startTimerBtn.innerText = "COMPLETE!";
+  startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
 }
