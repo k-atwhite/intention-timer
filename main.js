@@ -51,41 +51,40 @@ logActivityBtn.addEventListener('click', function() {
 
 function changeButtonColor(event) {
   if (event.target.id === 'study-btn' && 'study-img') {
-      updateButtonVisuals(studyBtn, studyImg, 'study');
+      addButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
       unselectButton();
   } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
-      updateButtonVisuals(meditateBtn, meditateImg, 'meditate');
+      addButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
       unselectButton();
   } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
-      updateButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
+      addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
       unselectButton();
   }
 }
 
-function updateButtonVisuals(button, img, btnKeyword) {
+function addButtonVisuals(button, img, btnKeyword) {
   button.classList.add(`${btnKeyword}-active`);
   img.src = `assets/${btnKeyword}-active.svg`;
 }
 
+function removeButtonVisuals(button, img, btnKeyword) {
+  button.classList.remove(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}.svg`;
+}
+
 function unselectButton() {
   if (currentActivity === "Study") {
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else if (currentActivity === "Meditate") {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
   }
 }
 
