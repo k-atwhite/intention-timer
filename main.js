@@ -46,6 +46,7 @@ startTimerBtn.addEventListener('click', function() {
 
 logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
+  loadActivityCard();
 });
 
 function changeButtonColor(event) {
@@ -138,4 +139,18 @@ function completedActivity() {
   // make confetti fall on screen
   startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
+}
+
+function loadActivityCard() {
+  defaultActivityText.classList.add('hidden');
+  pastActivitiesBox.innerHTML += `
+    <article class="logged-activity" id="${currentActivity.id}">
+      <div class="${currentActivity.category}-category-color activity-line"></div>
+      <div>
+        <h4>${currentActivity.category}</h4>
+        <p class="time-description">${this.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <p>${currentActivity.description}</p>
+      </div>
+    </article>
+    `
 }
