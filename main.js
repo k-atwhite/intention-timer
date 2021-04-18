@@ -53,16 +53,14 @@ function changeButtonColor(event) {
   if (event.target.id === 'study-btn' && 'study-img') {
       addButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
-      unselectButton();
   } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
       addButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
-      unselectButton();
   } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
       addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
-      unselectButton();
   }
+  unselectButton();
 }
 
 function addButtonVisuals(button, img, btnKeyword) {
