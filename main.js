@@ -1,19 +1,19 @@
-var btnSection = document.querySelector('.btn-section');
+var btnSection = document.querySelector('#btnSection');
 // Activity Btns
-var studyBtn = document.querySelector('#study-btn');
-var meditateBtn = document.querySelector('#meditate-btn');
-var exerciseBtn = document.querySelector('#exercise-btn');
+var studyBtn = document.querySelector('#studyBtn');
+var meditateBtn = document.querySelector('#meditateBtn');
+var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
 var timer = document.querySelector('#timer');
 
 //Button Imgs
-var studyImg = document.querySelector('#study-img');
-var meditateImg = document.querySelector('#meditate-img');
-var exerciseImg = document.querySelector('#exercise-img');
+var studyImg = document.querySelector('#studyImg');
+var meditateImg = document.querySelector('#meditateImg');
+var exerciseImg = document.querySelector('#exerciseImg');
 //Input Values
-var accomplishmentInput = document.querySelector('#accomplishment-input');
-var minutesInput = document.querySelector('#minutes-input');
-var secondsInput = document.querySelector('#seconds-input');
+var accomplishmentInput = document.querySelector('#accomplishmentInput');
+var minutesInput = document.querySelector('#minutesInput');
+var secondsInput = document.querySelector('#secondsInput');
 
 var startActivityBtn = document.querySelector('#startActivityBtn');
 var accomplishmentWarning = document.querySelector('#accomplishmentWarning');
@@ -46,17 +46,17 @@ startTimerBtn.addEventListener('click', function() {
 
 
 function changeButtonColor(event) {
-  if (event.target.id === 'study-btn' && 'study-img') {
+  if (event.target.id === 'studyBtn' && 'studyImg') {
       studyBtn.classList.add('study-active');
       studyImg.src = 'assets/study-active.svg';
       currentActivity = "Study";
       unselectButton();
-  } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
+  } else if (event.target.id === 'meditateBtn' && 'meditateImg') {
       meditateBtn.classList.add('meditate-active');
       meditateImg.src = 'assets/meditate-active.svg';
       currentActivity = "Meditate";
       unselectButton();
-  } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
+  } else if (event.target.id === 'exerciseBtn' && 'exerciseImg') {
       exerciseBtn.classList.add('exercise-active');
       exerciseImg.src = 'assets/exercise-active.svg';
       currentActivity = "Exercise";
@@ -103,20 +103,6 @@ function checkInputValues() {
   }
 }
 
-// Two Boxes, one hidden...timer-box
- // in new HTML hidden timer Box
- // within container we have
- // h2 input value of accomplishment
- // TIMER in minutes:seconds
- // button 50% border-radius, START in middle
-    // border is purple, text white
-// event listener for start button in new timer-box
-// Hide input box on startActivity
-  //maybe call other function to style all these elements
-// another function is called
-//
-
-
 function startActivity() {
   var activityCategory = currentActivity;
   currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
@@ -150,23 +136,3 @@ function timerOperation(totalSeconds) {
   if (seconds < 10) seconds = `0${seconds}`;
   document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
 }
-
-// TIMER
-
-// var startMinutes = minutesInput.value;
-// var totalTime = (startMinutes * 60) + secondsInput.value; //to get total seconds
-// var countdown = document.querySelector('#timer');
-//
-// function startTimer() {
-//   setInterval(updateCountdown, 1000);
-//   updateCountdown();
-// }
-//
-// function updateCountdown() {
-//   countdown.innerHTML = '';
-//   var minutes = Math.round(totalTime / 60);
-//   var seconds = totalTime % 60;
-//   seconds = seconds < 10 ? '0' + seconds : seconds;
-//   countdown.innerHTML = `${minutes}:${seconds}`;
-//   totalTime--
-// }

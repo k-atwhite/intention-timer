@@ -15,8 +15,7 @@ class Activity {
     var timeRemaining;
     var interval = setInterval(function() {
       if (timeRemaining === 0) {
-        clearInterval(interval);
-        // return completedActivity();
+        return clearInterval(interval);
       }
       currentActivity.timePassed += 1;
       timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
