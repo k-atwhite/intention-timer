@@ -51,21 +51,23 @@ logActivityBtn.addEventListener('click', function() {
 
 function changeButtonColor(event) {
   if (event.target.id === 'study-btn' && 'study-img') {
-      studyBtn.classList.add('study-active');
-      studyImg.src = 'assets/study-active.svg';
+      updateButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
       unselectButton();
   } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
-      meditateBtn.classList.add('meditate-active');
-      meditateImg.src = 'assets/meditate-active.svg';
+      updateButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
       unselectButton();
   } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
-      exerciseBtn.classList.add('exercise-active');
-      exerciseImg.src = 'assets/exercise-active.svg';
+      updateButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
       unselectButton();
   }
+}
+
+function updateButtonVisuals(button, img, btnKeyword) {
+  button.classList.add(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}-active.svg`;
 }
 
 function unselectButton() {
