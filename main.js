@@ -5,6 +5,7 @@ var meditateBtn = document.querySelector('#meditateBtn');
 var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
 var timer = document.querySelector('#timer');
+var logActivityBtn = document.querySelector('#logActivityBtn');
 
 //Button Imgs
 var studyImg = document.querySelector('#studyImg');
@@ -24,6 +25,10 @@ var leftBox = document.querySelector('#leftBox');
 var timerBox = document.querySelector('#timerBox');
 var timerInputBox = document.querySelector('#timerInputBox');
 
+// Right Box
+var defaultActivityText = document.querySelector('#defaultActivityText');
+var pastActivitiesBox = document.querySelector('.past-activities');
+
 var currentActivity;
 var savedActivities = [];
 
@@ -35,15 +40,12 @@ btnSection.addEventListener('click', function(event) {
 startActivityBtn.addEventListener('click', checkInputValues);
 
 startTimerBtn.addEventListener('click', function() {
-  currentActivity.startTimer()
+  currentActivity.startTimer();
 });
 
-// anonymous function contains conditional
-// have var isMinuteNumber assigned to isNumber(minutes) and have var assigned to isNumber(seconds)
-// if accomplishmentInput does not have value, remove hidden from warning
-// else if minutes input does not have value || var isMinuteNumber is false
-// same for seconds
-
+logActivityBtn.addEventListener('click', function() {
+  currentActivity.saveToStorage();
+});
 
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
@@ -82,12 +84,6 @@ function unselectButton() {
     meditateImg.src = 'assets/meditate.svg';
   }
 }
-
-// Try using number.isInteger
-// or isNaN
-// minutesInput.value
-// Ask Evan
-
 
 function checkInputValues() {
   if (!accomplishmentInput.value) {
@@ -135,4 +131,10 @@ function timerOperation(totalSeconds) {
   if (minutes < 10) minutes = `0${minutes}`;
   if (seconds < 10) seconds = `0${seconds}`;
   document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
+}
+
+function completedActivity() {
+  // make confetti fall on screen
+  startTimerBtn.innerText = "great job.";
+  logActivityBtn.classList.remove("hidden");
 }

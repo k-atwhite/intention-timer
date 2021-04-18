@@ -8,6 +8,7 @@ class Activity {
     this.timePassed = 0;
     this.completed = false;
     this.id = Date.now();
+
   }
 
   startTimer() {
@@ -15,7 +16,10 @@ class Activity {
     var timeRemaining;
     var interval = setInterval(function() {
       if (timeRemaining === 0) {
-        return clearInterval(interval);
+        clearInterval(interval);
+        currentActivity.markComplete();
+        completedActivity();
+        return;
       }
       currentActivity.timePassed += 1;
       timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
@@ -28,25 +32,19 @@ class Activity {
   }
 
   saveToStorage() {
-
+    defaultActivityText.classList.add('hidden');
+    pastActivitiesBox.innerHTML += `
+      <article class="logged-activity" id="${this.id}">
+        <div class="${this.category}-category-color activity-line"></div>
+        <div>
+          <h4>${this.category}</h4>
+          <p class="time-description">${this.minutes} MIN ${this.seconds} SECONDS</p>
+          <p>${this.description}</p>
+        </div>
+      </article>
+      `
+    // insertAdjacentHTML or innerHTML - adding a new element using our currentActiviy properties
+    // on right side - hide both p tags, make a mini section?
+    // Add a card
   }
 }
-
-
-// var startMinutes = minutesInput.value;
-// var totalSeconds = (startMinutes * 60) + secondsInput.value; //to get total seconds
-// var countdown = document.querySelector('#timer');
-
-// function startTimer() {
-//   setInterval(updateCountdown, 1000);
-//   updateCountdown();
-// }
-//
-// function updateCountdown() {
-//   countdown.innerHTML = '';
-//   var minutes = Math.round(totalTime / 60);
-//   var seconds = totalTime % 60;
-//   seconds = seconds < 10 ? '0' + seconds : seconds;
-//   countdown.innerHTML = `${minutes}:${seconds}`;
-//   totalTime--
-// }
