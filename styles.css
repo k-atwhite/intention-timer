@@ -131,6 +131,13 @@ input[type=number] {
   width: 30px;
 }
 
+input {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
+}
+
 .time-input {
   width: 300px;
 }
@@ -163,7 +170,7 @@ input[type=number] {
 .timer-input-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -197,8 +204,33 @@ input[type=number] {
   width: 200px;
 }
 
+.start-timer-btn:hover {
+  background-color: #615f66;
+}
 .left-box {
   width: 49%;
+}
+
+.logged-activity {
+  background: #46424D;
+  padding: 10px 20px;
+  margin: 30px;
+  width: 90%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  box-shadow: 3px 3px 10px black;
+  border-radius: 10px;
+}
+
+.log-activity-button {
+  border-radius: 5px;
+  border: none;
+  color: #46424D;
+  font-size: 20px;
+  margin-top: 8%;
+  padding: 9px;
+  width: 255px;
 }
 
 .vertical-line {
