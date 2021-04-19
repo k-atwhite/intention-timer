@@ -18,8 +18,7 @@ class Activity {
       if (timeRemaining === 0) {
         clearInterval(interval);
         currentActivity.markComplete();
-        completedActivity();
-        return;
+        return completedActivity();
       }
       currentActivity.timePassed += 1;
       timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
@@ -43,8 +42,5 @@ class Activity {
         </div>
       </article>
       `
-    // insertAdjacentHTML or innerHTML - adding a new element using our currentActiviy properties
-    // on right side - hide both p tags, make a mini section?
-    // Add a card
   }
 }
