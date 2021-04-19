@@ -46,43 +46,43 @@ startTimerBtn.addEventListener('click', function() {
 
 logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
+  loadActivityCard();
 });
 
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
-      studyBtn.classList.add('study-active');
-      studyImg.src = 'assets/study-active.svg';
+      addButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
-      unselectButton();
   } else if (event.target.id === 'meditateBtn' && 'meditateImg') {
-      meditateBtn.classList.add('meditate-active');
-      meditateImg.src = 'assets/meditate-active.svg';
+      addButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
-      unselectButton();
   } else if (event.target.id === 'exerciseBtn' && 'exerciseImg') {
-      exerciseBtn.classList.add('exercise-active');
-      exerciseImg.src = 'assets/exercise-active.svg';
+      addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
-      unselectButton();
   }
+  unselectButton();
+}
+
+function addButtonVisuals(button, img, btnKeyword) {
+  button.classList.add(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}-active.svg`;
+}
+
+function removeButtonVisuals(button, img, btnKeyword) {
+  button.classList.remove(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}.svg`;
 }
 
 function unselectButton() {
   if (currentActivity === "Study") {
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else if (currentActivity === "Meditate") {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
   }
 }
 
@@ -153,4 +153,18 @@ function completedActivity() {
   // make confetti fall on screen
   startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
+}
+
+function loadActivityCard() {
+  defaultActivityText.classList.add('hidden');
+  pastActivitiesBox.innerHTML += `
+    <article class="logged-activity" id="${currentActivity.id}">
+      <div class="${currentActivity.category}-category-color activity-line"></div>
+      <div>
+        <h4>${currentActivity.category}</h4>
+        <p class="time-description">${this.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <p>${currentActivity.description}</p>
+      </div>
+    </article>
+    `
 }
