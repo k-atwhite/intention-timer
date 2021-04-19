@@ -30,6 +30,12 @@ var timerInputBox = document.querySelector('#timerInputBox');
 var defaultActivityText = document.querySelector('#defaultActivityText');
 var pastActivitiesBox = document.querySelector('.past-activities');
 
+//Create a new activity
+
+var createNewActivity = document.querySelector('#completedBox');
+var createNewActivityBtn = document.querySelector('#createNewBtn');
+
+
 var currentActivity;
 var savedActivities = [];
 
@@ -167,4 +173,11 @@ function loadActivityCard() {
       </div>
     </article>
     `
+    createNewActivityView();
+}
+
+function createNewActivityView() {
+  createNewActivity.classList.remove('hidden');
+  timerBox.classList.add('hidden');
+
 }
