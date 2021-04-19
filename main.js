@@ -1,21 +1,21 @@
-var btnSection = document.querySelector('.btn-section');
+var btnSection = document.querySelector('#btnSection');
 // Activity Btns
-var studyBtn = document.querySelector('#study-btn');
-var meditateBtn = document.querySelector('#meditate-btn');
-var exerciseBtn = document.querySelector('#exercise-btn');
+var studyBtn = document.querySelector('#studyBtn');
+var meditateBtn = document.querySelector('#meditateBtn');
+var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
 var timer = document.querySelector('#timer');
 var logActivityBtn = document.querySelector('#logActivityBtn');
 
 //Button Imgs
-var studyImg = document.querySelector('#study-img');
-var meditateImg = document.querySelector('#meditate-img');
-var exerciseImg = document.querySelector('#exercise-img');
+var studyImg = document.querySelector('#studyImg');
+var meditateImg = document.querySelector('#meditateImg');
+var exerciseImg = document.querySelector('#exerciseImg');
 
 //Input Values
-var accomplishmentInput = document.querySelector('#accomplishment-input');
-var minutesInput = document.querySelector('#minutes-input');
-var secondsInput = document.querySelector('#seconds-input');
+var accomplishmentInput = document.querySelector('#accomplishmentInput');
+var minutesInput = document.querySelector('#minutesInput');
+var secondsInput = document.querySelector('#secondsInput');
 
 var startActivityBtn = document.querySelector('#startActivityBtn');
 var accomplishmentWarning = document.querySelector('#accomplishmentWarning');
@@ -46,43 +46,43 @@ startTimerBtn.addEventListener('click', function() {
 
 logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
+  loadActivityCard();
 });
 
 function changeButtonColor(event) {
-  if (event.target.id === 'study-btn' && 'study-img') {
-      studyBtn.classList.add('study-active');
-      studyImg.src = 'assets/study-active.svg';
+  if (event.target.id === 'studyBtn' && 'studyImg') {
+      addButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
-      unselectButton();
-  } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
-      meditateBtn.classList.add('meditate-active');
-      meditateImg.src = 'assets/meditate-active.svg';
+  } else if (event.target.id === 'meditateBtn' && 'meditateImg') {
+      addButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
-      unselectButton();
-  } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
-      exerciseBtn.classList.add('exercise-active');
-      exerciseImg.src = 'assets/exercise-active.svg';
+  } else if (event.target.id === 'exerciseBtn' && 'exerciseImg') {
+      addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
-      unselectButton();
   }
+  unselectButton();
+}
+
+function addButtonVisuals(button, img, btnKeyword) {
+  button.classList.add(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}-active.svg`;
+}
+
+function removeButtonVisuals(button, img, btnKeyword) {
+  button.classList.remove(`${btnKeyword}-active`);
+  img.src = `assets/${btnKeyword}.svg`;
 }
 
 function unselectButton() {
   if (currentActivity === "Study") {
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else if (currentActivity === "Meditate") {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    exerciseBtn.classList.remove('exercise-active');
-    exerciseImg.src = 'assets/exercise.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else {
-    studyBtn.classList.remove('study-active');
-    studyImg.src = 'assets/study.svg';
-    meditateBtn.classList.remove('meditate-active');
-    meditateImg.src = 'assets/meditate.svg';
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
   }
 }
 
@@ -111,9 +111,17 @@ function displayTimerBox() {
   leftBox.classList.add('hidden');
   timerBox.classList.remove('hidden');
   changeTimerBorder();
+  displayTime();
+}
+
+function displayTime() {
+  var minutes = currentActivity.minutes;
+  var seconds = currentActivity.seconds;
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) seconds = `0${seconds}`;
   timerInputBox.insertAdjacentHTML('afterbegin', `
   <h3 class="activity-description">${currentActivity.description}</h3>
-  <p class="activity-time" id="timer">${currentActivity.minutes}:${currentActivity.seconds}</p>`);
+  <p class="activity-time" id="timer">${minutes}:${seconds}</p>`);
 }
 
 function changeTimerBorder() {
@@ -126,6 +134,12 @@ function changeTimerBorder() {
   }
 }
 
+// function convertTime() {
+//   if (minutes < 10) minutes = `0${minutes}`;
+//   if (seconds < 10) seconds = `0${seconds}`;
+// }
+
+
 function timerOperation(totalSeconds) {
   var minutes = Math.floor(totalSeconds / 60);
   var seconds = totalSeconds % 60;
@@ -134,8 +148,23 @@ function timerOperation(totalSeconds) {
   document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
 }
 
+
 function completedActivity() {
   // make confetti fall on screen
   startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
+}
+
+function loadActivityCard() {
+  defaultActivityText.classList.add('hidden');
+  pastActivitiesBox.innerHTML += `
+    <article class="logged-activity" id="${currentActivity.id}">
+      <div class="${currentActivity.category}-category-color activity-line"></div>
+      <div>
+        <h4>${currentActivity.category}</h4>
+        <p class="time-description">${this.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <p>${currentActivity.description}</p>
+      </div>
+    </article>
+    `
 }
