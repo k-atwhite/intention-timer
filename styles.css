@@ -253,24 +253,6 @@ input {
   text-align: center;
 }
 
-.Study-category-color {
-  color: #B3FD78;
-}
-
-.Meditate-category-color {
-  color: #C278FD;
-}
-
-.Exercise-category-color {
-  color: #FD8078;
-}
-
-.activity-line {
-  height: 30px;
-  border-right: 6px solid;
-  border-radius: 20%;
-}
-
 @media only screen and (max-width: 1300px) {
   .time-input {
     width: 200px;
