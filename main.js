@@ -34,6 +34,7 @@ var pastActivitiesBox = document.querySelector('.past-activities');
 
 var createNewActivity = document.querySelector('#completedBox');
 var createNewActivityBtn = document.querySelector('#createNewBtn');
+var homeView = document.querySelector('#homeView');
 
 
 var currentActivity;
@@ -54,6 +55,8 @@ logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
   loadActivityCard();
 });
+
+// createNewActivityBtn.addEventListener('click', displayHomeView);
 
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
@@ -114,7 +117,7 @@ function startActivity() {
 }
 
 function displayTimerBox() {
-  leftBox.classList.add('hidden');
+  homeView.classList.add('hidden');
   timerBox.classList.remove('hidden');
   changeTimerBorder();
   displayTime();
@@ -140,11 +143,6 @@ function changeTimerBorder() {
   }
 }
 
-// function convertTime() {
-//   if (minutes < 10) minutes = `0${minutes}`;
-//   if (seconds < 10) seconds = `0${seconds}`;
-// }
-
 
 function timerOperation(totalSeconds) {
   var minutes = Math.floor(totalSeconds / 60);
@@ -168,7 +166,7 @@ function loadActivityCard() {
       <div class="${currentActivity.category}-category-color activity-line"></div>
       <div>
         <h4>${currentActivity.category}</h4>
-        <p class="time-description">${this.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <p class="time-description">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
         <p>${currentActivity.description}</p>
       </div>
     </article>
@@ -181,3 +179,31 @@ function createNewActivityView() {
   timerBox.classList.add('hidden');
 
 }
+//
+// function displayHomeView() {
+//   accomplishmentInput.value = '';
+//   minutesInput.value = '';
+//   secondsInput.value = '';
+//   startTimerBtn.innerText = 'START';
+//   startTimerBtn.removeAttribute('disabled');
+//   createNewActivity.classList.add('hidden');
+//   homeView.classList.remove('hidden');
+// }
+//
+//
+// From Repo:
+//
+//
+// function showForm() {
+//   clearForm();
+//   toggleHidden(formDisplay, timerDisplay);
+//   activityTitle.innerText = 'New Activity';
+// }
+//
+// function clearForm() {
+//   descriptionInput.value = '';
+//   minuteInput.value = '';
+//   secondInput.value = '';
+//   clearHighlight();
+  // toggleHidden(createNewActivityButton);
+// }
