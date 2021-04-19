@@ -131,8 +131,15 @@ input[type=number] {
   width: 30px;
 }
 
+input {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
+}
+
 .time-input {
-  width: 300px;
+  width: 350px;
 }
 
 .time-box {
