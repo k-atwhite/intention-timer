@@ -18,8 +18,7 @@ class Activity {
       if (timeRemaining === 0) {
         clearInterval(interval);
         currentActivity.markComplete();
-        completedActivity();
-        return;
+        return completedActivity();
       }
       currentActivity.timePassed += 1;
       timeRemaining = (currentActivity.totalSeconds - currentActivity.timePassed);
@@ -32,6 +31,6 @@ class Activity {
   }
 
   saveToStorage() {
-    
+
   }
 }

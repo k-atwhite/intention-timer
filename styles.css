@@ -131,6 +131,13 @@ input[type=number] {
   width: 30px;
 }
 
+input {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
+}
+
 .time-input {
   width: 300px;
 }
@@ -163,7 +170,7 @@ input[type=number] {
 .timer-input-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -197,6 +204,9 @@ input[type=number] {
   width: 200px;
 }
 
+.start-timer-btn:hover {
+  background-color: #615f66;
+}
 .left-box {
   width: 49%;
 }
@@ -211,6 +221,16 @@ input[type=number] {
   justify-content: space-between;
   box-shadow: 3px 3px 10px black;
   border-radius: 10px;
+}
+
+.log-activity-button {
+  border-radius: 5px;
+  border: none;
+  color: #46424D;
+  font-size: 20px;
+  margin-top: 8%;
+  padding: 9px;
+  width: 255px;
 }
 
 .vertical-line {
@@ -231,24 +251,6 @@ input[type=number] {
 
 .past-activities {
   text-align: center;
-}
-
-.Study-category-color {
-  color: #B3FD78;
-}
-
-.Meditate-category-color {
-  color: #C278FD;
-}
-
-.Exercise-category-color {
-  color: #FD8078;
-}
-
-.activity-line {
-  height: 30px;
-  border-right: 6px solid;
-  border-radius: 20%;
 }
 
 @media only screen and (max-width: 1300px) {

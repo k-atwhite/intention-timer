@@ -1,21 +1,21 @@
-var btnSection = document.querySelector('.btn-section');
+var btnSection = document.querySelector('#btnSection');
 // Activity Btns
-var studyBtn = document.querySelector('#study-btn');
-var meditateBtn = document.querySelector('#meditate-btn');
-var exerciseBtn = document.querySelector('#exercise-btn');
+var studyBtn = document.querySelector('#studyBtn');
+var meditateBtn = document.querySelector('#meditateBtn');
+var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
 var timer = document.querySelector('#timer');
 var logActivityBtn = document.querySelector('#logActivityBtn');
 
 //Button Imgs
-var studyImg = document.querySelector('#study-img');
-var meditateImg = document.querySelector('#meditate-img');
-var exerciseImg = document.querySelector('#exercise-img');
+var studyImg = document.querySelector('#studyImg');
+var meditateImg = document.querySelector('#meditateImg');
+var exerciseImg = document.querySelector('#exerciseImg');
 
 //Input Values
-var accomplishmentInput = document.querySelector('#accomplishment-input');
-var minutesInput = document.querySelector('#minutes-input');
-var secondsInput = document.querySelector('#seconds-input');
+var accomplishmentInput = document.querySelector('#accomplishmentInput');
+var minutesInput = document.querySelector('#minutesInput');
+var secondsInput = document.querySelector('#secondsInput');
 
 var startActivityBtn = document.querySelector('#startActivityBtn');
 var accomplishmentWarning = document.querySelector('#accomplishmentWarning');
@@ -50,13 +50,13 @@ logActivityBtn.addEventListener('click', function() {
 });
 
 function changeButtonColor(event) {
-  if (event.target.id === 'study-btn' && 'study-img') {
+  if (event.target.id === 'studyBtn' && 'studyImg') {
       addButtonVisuals(studyBtn, studyImg, 'study');
       currentActivity = "Study";
-  } else if (event.target.id === 'meditate-btn' && 'meditate-img') {
+  } else if (event.target.id === 'meditateBtn' && 'meditateImg') {
       addButtonVisuals(meditateBtn, meditateImg, 'meditate');
       currentActivity = "Meditate";
-  } else if (event.target.id === 'exercise-btn' && 'exercise-img') {
+  } else if (event.target.id === 'exerciseBtn' && 'exerciseImg') {
       addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
       currentActivity = "Exercise";
   }
@@ -111,9 +111,17 @@ function displayTimerBox() {
   leftBox.classList.add('hidden');
   timerBox.classList.remove('hidden');
   changeTimerBorder();
+  displayTime();
+}
+
+function displayTime() {
+  var minutes = currentActivity.minutes;
+  var seconds = currentActivity.seconds;
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) seconds = `0${seconds}`;
   timerInputBox.insertAdjacentHTML('afterbegin', `
   <h3 class="activity-description">${currentActivity.description}</h3>
-  <p class="activity-time" id="timer">${currentActivity.minutes}:${currentActivity.seconds}</p>`);
+  <p class="activity-time" id="timer">${minutes}:${seconds}</p>`);
 }
 
 function changeTimerBorder() {
@@ -126,6 +134,12 @@ function changeTimerBorder() {
   }
 }
 
+// function convertTime() {
+//   if (minutes < 10) minutes = `0${minutes}`;
+//   if (seconds < 10) seconds = `0${seconds}`;
+// }
+
+
 function timerOperation(totalSeconds) {
   var minutes = Math.floor(totalSeconds / 60);
   var seconds = totalSeconds % 60;
@@ -133,6 +147,7 @@ function timerOperation(totalSeconds) {
   if (seconds < 10) seconds = `0${seconds}`;
   document.getElementById('timer').innerHTML = `${minutes}:${seconds}`;
 }
+
 
 function completedActivity() {
   // make confetti fall on screen
