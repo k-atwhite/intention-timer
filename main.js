@@ -4,6 +4,7 @@ var studyBtn = document.querySelector('#studyBtn');
 var meditateBtn = document.querySelector('#meditateBtn');
 var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
+var timerDetail = document.querySelector('#timerDetail')
 var timer = document.querySelector('#timer');
 var logActivityBtn = document.querySelector('#logActivityBtn');
 
@@ -56,7 +57,7 @@ logActivityBtn.addEventListener('click', function() {
   loadActivityCard();
 });
 
-// createNewActivityBtn.addEventListener('click', displayHomeView);
+createNewActivityBtn.addEventListener('click', displayHomeView);
 
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
@@ -124,13 +125,15 @@ function displayTimerBox() {
 }
 
 function displayTime() {
+  timerDetail.innerHTML = '';
   var minutes = currentActivity.minutes;
   var seconds = currentActivity.seconds;
   if (minutes < 10) minutes = `0${minutes}`;
   if (seconds < 10) seconds = `0${seconds}`;
-  timerInputBox.insertAdjacentHTML('afterbegin', `
+  timerDetail.innerHTML = `
   <h3 class="activity-description">${currentActivity.description}</h3>
-  <p class="activity-time" id="timer">${minutes}:${seconds}</p>`);
+  <p class="activity-time" id="timer">${minutes}:${seconds}</p>
+  `;
 }
 
 function changeTimerBorder() {
@@ -179,31 +182,14 @@ function createNewActivityView() {
   timerBox.classList.add('hidden');
 
 }
-//
-// function displayHomeView() {
-//   accomplishmentInput.value = '';
-//   minutesInput.value = '';
-//   secondsInput.value = '';
-//   startTimerBtn.innerText = 'START';
-//   startTimerBtn.removeAttribute('disabled');
-//   createNewActivity.classList.add('hidden');
-//   homeView.classList.remove('hidden');
-// }
-//
-//
-// From Repo:
-//
-//
-// function showForm() {
-//   clearForm();
-//   toggleHidden(formDisplay, timerDisplay);
-//   activityTitle.innerText = 'New Activity';
-// }
-//
-// function clearForm() {
-//   descriptionInput.value = '';
-//   minuteInput.value = '';
-//   secondInput.value = '';
-//   clearHighlight();
-  // toggleHidden(createNewActivityButton);
-// }
+
+function displayHomeView() {
+  accomplishmentInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+  startTimerBtn.innerText = 'START';
+  startTimerBtn.removeAttribute('disabled');
+  createNewActivity.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  logActivityBtn.classList.add('hidden');
+}

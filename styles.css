@@ -100,6 +100,24 @@ input[type=number] {
   width: 150px;
 }
 
+.activity-line {
+  height: 30px;
+  border-right: 6px solid;
+  border-radius: 20%;
+}
+
+.Study-category-color {
+  color: #B3FD78;
+}
+
+.Meditate-category-color {
+  color: #C278FD;
+}
+
+.Exercise-category-color {
+  color: #FD8078;
+}
+
 .input-label {
   margin-top: 10%;
 }
