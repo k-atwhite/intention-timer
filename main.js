@@ -187,9 +187,17 @@ function displayHomeView() {
   accomplishmentInput.value = '';
   minutesInput.value = '';
   secondsInput.value = '';
+  if (currentActivity.category === 'Study') {
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+  } else if (currentActivity.category === 'Meditate') {
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
+  } else if (currentActivity.category === 'Exercise') {
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
+  }
+  currentActivity = '';
   startTimerBtn.innerText = 'START';
   startTimerBtn.removeAttribute('disabled');
   createNewActivity.classList.add('hidden');
-  leftBox.classList.remove('hidden');
+  homeView.classList.remove('hidden');
   logActivityBtn.classList.add('hidden');
 }
