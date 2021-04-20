@@ -118,9 +118,9 @@ function startActivity() {
 }
 
 function displayTimerBox() {
-  // homeView.classList.add('hidden');
+  homeView.classList.add('hidden');
   timerBox.classList.remove('hidden');
-  leftBox.classList.add('hidden');
+  // leftBox.classList.add('hidden');
   changeTimerBorder();
   displayTime();
 }
@@ -158,7 +158,6 @@ function timerOperation(totalSeconds) {
 
 
 function completedActivity() {
-  // make confetti fall on screen
   startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
 }
