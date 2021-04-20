@@ -9,6 +9,8 @@ Exercise: #FD8078
 Error: #EFB7EC
 */
 
+/* General */
+
 html {
   height: 100%;
   min-height: 100%;
@@ -45,12 +47,16 @@ h3 {
   font-weight: 400;
 }
 
+/* Header */
+
 header {
   background-color: #46424D;
   padding: 2px;
   text-align: center;
   z-index: 1;
 }
+
+/* Input Fields */
 
 input {
   background-color: #46424D;
@@ -81,13 +87,33 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.input-label {
+  margin-top: 10%;
+}
+
+input {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
+}
+
+.time-input {
+  width: 300px;
+}
+
+/* Cards */
+
 .input-box {
   background-color: #46424D;
   box-shadow: 8px 8px #26222D;
   border-radius: 5px;
+  min-height: 500px;
   padding: 5% 17% 8%;
   width: 100%;
 }
+
+/* Buttons */
 
 .activity-btn {
   background-color: #46424D;
@@ -100,14 +126,12 @@ input[type=number] {
   width: 150px;
 }
 
-.input-label {
-  margin-top: 10%;
-}
-
 .btn-section {
   display: flex;
   justify-content: space-between;
 }
+
+/* Category Button Colors */
 
 .study-active {
   border: 2px solid #B3FD78;
@@ -131,17 +155,6 @@ input[type=number] {
   width: 30px;
 }
 
-input {
-  color: #FFF;
-  font-size: 18px;
-  font-family: "Montserrat";
-  font-weight: lighter;
-}
-
-.time-input {
-  width: 300px;
-}
-
 .time-box {
   display: flex;
   justify-content: space-between;
@@ -151,6 +164,8 @@ input {
 .warning-box {
   margin-top: 2%;
 }
+
+/* Warnings */
 
 .warning-img {
   display: inline;
@@ -166,6 +181,8 @@ input {
   display: flex;
   justify-content: flex-end;
 }
+
+/* Timer */
 
 .timer-input-box {
   display: flex;
@@ -212,18 +229,6 @@ input {
   width: 49%;
 }
 
-.logged-activity {
-  background: #46424D;
-  padding: 10px 20px;
-  margin: 30px;
-  width: 90%;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  box-shadow: 3px 3px 10px black;
-  border-radius: 10px;
-}
-
 .log-activity-button {
   border-radius: 5px;
   border: none;
@@ -233,6 +238,26 @@ input {
   padding: 9px;
   width: 255px;
 }
+
+/* Add New */
+
+.completed-activity-box {
+  display: flex;
+  justify-content: center;
+}
+
+.create-new-btn {
+  border-radius: 5px;
+  border: none;
+  color: #46424D;
+  font-size: 20px;
+  height: 40px;
+  margin-top: 8%;
+  padding: 9px;
+  width: 350px;
+}
+
+/* Vertical Line */
 
 .vertical-line {
   background-color: #46424D;
@@ -244,6 +269,8 @@ input {
   z-index: -1;
 }
 
+/* Right Box */
+
 .right-box {
   height: 100%;
   padding-left: 1.6%;
@@ -251,8 +278,43 @@ input {
 }
 
 .past-activities {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
+
+/* Logged Activity Cards */
+
+.logged-activity {
+  background: #46424D;
+  padding: 10px 30px;
+  margin: 30px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  box-shadow: 3px 3px 10px #26222D;
+  border-radius: 10px;
+}
+
+.activity-line {
+  border-radius: 8px;
+  max-height: 20px;
+}
+
+.Study-category-color {
+  border: 4px solid #B3FD78;
+}
+
+.Meditate-category-color {
+  border: 4px solid #C278FD;
+}
+
+.Exercise-category-color {
+  border: 4px solid #FD8078;
+}
+
+/* Media Queries and Hidden */
 
 @media only screen and (max-width: 1300px) {
   .time-input {
