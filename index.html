@@ -13,58 +13,68 @@
     </header>
     <main>
       <section class="left-box" id="leftBox">
-        <h2>New Activity</h2>
-        <div class="input-box">
-          <h3>Select a category:</h3>
-          <section class="btn-section" id="btnSection">
-            <button class="Study activity-btn" id="studyBtn" type="button" name="button">
-              <img src="assets/study.svg" alt="vector of a light bulb and book" id="studyImg" class="Study btn-logo">
-              Study
-            </button>
-            <button class="Meditate activity-btn" id="meditateBtn" type="button" name="button">
-              <img src="assets/meditate.svg" alt="vector of a lotus flower" id="meditateImg" class="Meditate btn-logo">
-              Meditate
-            </button>
-            <button class="Exercise activity-btn" id="exerciseBtn" type="button" name="button">
-              <img src="assets/exercise.svg" alt="vector of a shoe" id="exerciseImg" class="Exercise btn-logo">
-              Exercise
-            </button>
-          </section>
-          <div class="hidden warning-box" id="categoryWarning">
-            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
-            <p class="warning-text">Please choose a category.</p>
-          </div>
-          <h3 class="input-label">What would you like to accomplish during this time?</h3>
-          <input type="text" value="" id="accomplishmentInput">
-          <div class="hidden warning-box" id="accomplishmentWarning">
-            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
-            <p class="warning-text">A description is required.</p>
-          </div>
-          <div class="time-box">
-            <div class="minutes-box">
-              <h3 class="input-label">Minutes</h3>
-              <input type="number" value="" id="minutesInput" class="time-input">
+        <article id="homeView">
+          <h2>New Activity</h2>
+          <div class="input-box">
+            <h3>Select a category:</h3>
+            <section class="btn-section" id="btnSection">
+              <button class="Study activity-btn" id="studyBtn" type="button" name="button">
+                <img src="assets/study.svg" alt="vector of a light bulb and book" id="studyImg" class="Study btn-logo">
+                Study
+              </button>
+              <button class="Meditate activity-btn" id="meditateBtn" type="button" name="button">
+                <img src="assets/meditate.svg" alt="vector of a lotus flower" id="meditateImg" class="Meditate btn-logo">
+                Meditate
+              </button>
+              <button class="Exercise activity-btn" id="exerciseBtn" type="button" name="button">
+                <img src="assets/exercise.svg" alt="vector of a shoe" id="exerciseImg" class="Exercise btn-logo">
+                Exercise
+              </button>
+            </section>
+            <div class="hidden warning-box" id="categoryWarning">
+              <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+              <p class="warning-text">Please choose a category.</p>
             </div>
-            <div class="seconds-box">
-              <h3 class="input-label">Seconds</h3>
-              <input type="number" value="" id="secondsInput" class="time-input">
+            <h3 class="input-label">What would you like to accomplish during this time?</h3>
+            <input type="text" value="" id="accomplishmentInput">
+            <div class="hidden warning-box" id="accomplishmentWarning">
+              <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+              <p class="warning-text">A description is required.</p>
+            </div>
+            <div class="time-box">
+              <div class="minutes-box">
+                <h3 class="input-label">Minutes</h3>
+                <input type="number" value="" id="minutesInput" class="time-input">
+              </div>
+              <div class="seconds-box">
+                <h3 class="input-label">Seconds</h3>
+                <input type="number" value="" id="secondsInput" class="time-input">
+              </div>
+            </div>
+            <div class="hidden warning-box" id="timeWarning">
+              <img class="warning-img" src="assets/warning.svg" alt="WARNING">
+              <p class="warning-text">Minutes and seconds are required.</p>
+            </div>
+            <div class="start-box">
+              <button class="start-btn" id="startActivityBtn" type="button" name="button">START ACTIVITY</button>
             </div>
           </div>
-          <div class="hidden warning-box" id="timeWarning">
-            <img class="warning-img" src="assets/warning.svg" alt="WARNING">
-            <p class="warning-text">Minutes and seconds are required.</p>
+        </article>
+        <article class="timer-box hidden" id="timerBox">
+          <h2>Current Activity</h2>
+          <div class="input-box timer-input-box" id="timerInputBox">
+            <div id='timerDetail'>
+            </div>
+            <button class="start-timer-btn" id="startTimerBtn" type="button" name="button">START</button>
+            <button class="hidden log-activity-button" id="logActivityBtn">LOG ACTIVITY</button>
           </div>
-          <div class="start-box">
-            <button class="start-btn" id="startActivityBtn" type="button" name="button">START ACTIVITY</button>
+        </article>
+        <article class="completed-box hidden" id="completedBox">
+          <h2>Completed Activity</h2>
+          <div class="input-box completed-activity-box" id="completedActivityBox">
+            <button class="create-new-btn" id="createNewBtn" type="button" name="button">CREATE A NEW ACTIVITY</button>
           </div>
-        </div>
-      </section>
-      <section class="timer-box hidden" id="timerBox">
-        <h2>Current Activity</h2>
-        <div class="input-box timer-input-box" id="timerInputBox">
-          <button class="start-timer-btn" id="startTimerBtn" type="button" name="button">START</button>
-          <button class="hidden log-activity-button" id="logActivityBtn">LOG ACTIVITY</button>
-        </div>
+        </article>
       </section>
       <div class="vertical-line"></div>
       <section class="right-box">

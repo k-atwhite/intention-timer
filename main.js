@@ -4,6 +4,7 @@ var studyBtn = document.querySelector('#studyBtn');
 var meditateBtn = document.querySelector('#meditateBtn');
 var exerciseBtn = document.querySelector('#exerciseBtn');
 var startTimerBtn = document.querySelector('#startTimerBtn');
+var timerDetail = document.querySelector('#timerDetail')
 var timer = document.querySelector('#timer');
 var logActivityBtn = document.querySelector('#logActivityBtn');
 
@@ -30,6 +31,13 @@ var timerInputBox = document.querySelector('#timerInputBox');
 var defaultActivityText = document.querySelector('#defaultActivityText');
 var pastActivitiesBox = document.querySelector('.past-activities');
 
+//Create a new activity
+
+var createNewActivity = document.querySelector('#completedBox');
+var createNewActivityBtn = document.querySelector('#createNewBtn');
+var homeView = document.querySelector('#homeView');
+
+
 var currentActivity;
 var savedActivities = [];
 
@@ -48,6 +56,8 @@ logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
   loadActivityCard();
 });
+
+createNewActivityBtn.addEventListener('click', displayHomeView);
 
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
@@ -108,20 +118,23 @@ function startActivity() {
 }
 
 function displayTimerBox() {
-  leftBox.classList.add('hidden');
+  homeView.classList.add('hidden');
   timerBox.classList.remove('hidden');
+  // leftBox.classList.add('hidden');
   changeTimerBorder();
   displayTime();
 }
 
 function displayTime() {
+  timerDetail.innerHTML = '';
   var minutes = currentActivity.minutes;
   var seconds = currentActivity.seconds;
   if (minutes < 10) minutes = `0${minutes}`;
   if (seconds < 10) seconds = `0${seconds}`;
-  timerInputBox.insertAdjacentHTML('afterbegin', `
+  timerDetail.innerHTML = `
   <h3 class="activity-description">${currentActivity.description}</h3>
-  <p class="activity-time" id="timer">${minutes}:${seconds}</p>`);
+  <p class="activity-time" id="timer">${minutes}:${seconds}</p>
+  `;
 }
 
 function changeTimerBorder() {
@@ -134,11 +147,6 @@ function changeTimerBorder() {
   }
 }
 
-// function convertTime() {
-//   if (minutes < 10) minutes = `0${minutes}`;
-//   if (seconds < 10) seconds = `0${seconds}`;
-// }
-
 
 function timerOperation(totalSeconds) {
   var minutes = Math.floor(totalSeconds / 60);
@@ -150,7 +158,6 @@ function timerOperation(totalSeconds) {
 
 
 function completedActivity() {
-  // make confetti fall on screen
   startTimerBtn.innerText = "great job.";
   logActivityBtn.classList.remove("hidden");
 }
@@ -162,9 +169,35 @@ function loadActivityCard() {
       <div class="${currentActivity.category}-category-color activity-line"></div>
       <div>
         <h4>${currentActivity.category}</h4>
-        <p class="time-description">${this.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <p class="time-description">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
         <p>${currentActivity.description}</p>
       </div>
     </article>
     `
+    createNewActivityView();
+}
+
+function createNewActivityView() {
+  createNewActivity.classList.remove('hidden');
+  timerBox.classList.add('hidden');
+
+}
+
+function displayHomeView() {
+  accomplishmentInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+  if (currentActivity.category === 'Study') {
+    removeButtonVisuals(studyBtn, studyImg, 'study');
+  } else if (currentActivity.category === 'Meditate') {
+    removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
+  } else if (currentActivity.category === 'Exercise') {
+    removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
+  }
+  currentActivity = '';
+  startTimerBtn.innerText = 'START';
+  startTimerBtn.removeAttribute('disabled');
+  createNewActivity.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  logActivityBtn.classList.add('hidden');
 }
