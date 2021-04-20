@@ -62,19 +62,12 @@ input {
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #FFF;
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
   outline: none;
   width: 100%;
-  outline: none;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
@@ -89,13 +82,6 @@ input[type=number] {
 
 .input-label {
   margin-top: 10%;
-}
-
-input {
-  color: #FFF;
-  font-size: 18px;
-  font-family: "Montserrat";
-  font-weight: lighter;
 }
 
 .time-input {
@@ -125,32 +111,6 @@ input {
   padding: 10px;
   width: 150px;
 }
-
-/* .activity-line {
-  height: 30px;
-  border-right: 6px solid;
-  border-radius: 20%;
-}
-
-.completed-activity-box {
-  height: 100%;
-}
-
-.Study-category-color {
-  color: #B3FD78;
-}
-
-.Meditate-category-color {
-  color: #C278FD;
-}
-
-.Exercise-category-color {
-  color: #FD8078;
-}
-
-.input-label {
-  margin-top: 10%;
-} */
 
 .btn-section {
   display: flex;
@@ -218,12 +178,13 @@ input {
 }
 
 .activity-description {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: lighter;
+  text-align: center;
 }
 
 .activity-time {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 700;
 }
 
@@ -314,14 +275,16 @@ input {
 
 .logged-activity {
   background: #46424D;
-  padding: 10px 30px;
-  margin: 30px 10px;
-  width: 100%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #26222D;
   display: flex;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
-  box-shadow: 3px 3px 10px #26222D;
-  border-radius: 10px;
+  margin: 30px 10px;
+  padding: 10px 30px;
+  text-align: left;
+  width: 100%;
 }
 
 .activity-line {
