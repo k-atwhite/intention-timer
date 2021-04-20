@@ -56,13 +56,13 @@ createNewActivityBtn.addEventListener('click', displayHomeView);
 function changeButtonColor(event) {
   if (event.target.id === 'studyBtn' && 'studyImg') {
       addButtonVisuals(studyBtn, studyImg, 'study');
-      currentActivity = "Study";
+      currentActivity = 'Study';
   } else if (event.target.id === 'meditateBtn' && 'meditateImg') {
       addButtonVisuals(meditateBtn, meditateImg, 'meditate');
-      currentActivity = "Meditate";
+      currentActivity = 'Meditate';
   } else if (event.target.id === 'exerciseBtn' && 'exerciseImg') {
       addButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
-      currentActivity = "Exercise";
+      currentActivity = 'Exercise';
   }
   unselectButton();
 }
@@ -78,10 +78,10 @@ function removeButtonVisuals(button, img, btnKeyword) {
 }
 
 function unselectButton() {
-  if (currentActivity === "Study") {
+  if (currentActivity === 'Study') {
     removeButtonVisuals(meditateBtn, meditateImg, 'meditate');
     removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
-  } else if (currentActivity === "Meditate") {
+  } else if (currentActivity === 'Meditate') {
     removeButtonVisuals(studyBtn, studyImg, 'study');
     removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   } else {
@@ -114,7 +114,6 @@ function startActivity() {
 function displayTimerBox() {
   homeView.classList.add('hidden');
   timerBox.classList.remove('hidden');
-  // leftBox.classList.add('hidden');
   changeTimerBorder();
   displayTime();
 }
@@ -132,11 +131,11 @@ function displayTime() {
 }
 
 function changeTimerBorder() {
-  if (currentActivity.category === "Study") {
+  if (currentActivity.category === 'Study') {
     startTimerBtn.classList.add('study-active');
-  } else if (currentActivity.category === "Meditate") {
+  } else if (currentActivity.category === 'Meditate') {
     startTimerBtn.classList.add('meditate-active');
-  } else if (currentActivity.category === "Exercise") {
+  } else if (currentActivity.category === 'Exercise') {
     startTimerBtn.classList.add('exercise-active');
   }
 }
@@ -152,8 +151,8 @@ function timerOperation(totalSeconds) {
 
 
 function completedActivity() {
-  startTimerBtn.innerText = "great job.";
-  logActivityBtn.classList.remove("hidden");
+  startTimerBtn.innerText = 'GREAT JOB!';
+  logActivityBtn.classList.remove('hidden');
 }
 
 function loadActivityCard() {
@@ -178,6 +177,15 @@ function createNewActivityView() {
 }
 
 function displayHomeView() {
+  resetInputValues();
+  startTimerBtn.innerText = 'START';
+  startTimerBtn.removeAttribute('disabled');
+  createNewActivity.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  logActivityBtn.classList.add('hidden');
+}
+
+function resetInputValues() {
   accomplishmentInput.value = '';
   minutesInput.value = '';
   secondsInput.value = '';
@@ -189,9 +197,4 @@ function displayHomeView() {
     removeButtonVisuals(exerciseBtn, exerciseImg, 'exercise');
   }
   currentActivity = '';
-  startTimerBtn.innerText = 'START';
-  startTimerBtn.removeAttribute('disabled');
-  createNewActivity.classList.add('hidden');
-  homeView.classList.remove('hidden');
-  logActivityBtn.classList.add('hidden');
 }
