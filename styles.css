@@ -9,9 +9,8 @@ Exercise: #FD8078
 Error: #EFB7EC
 */
 
-/* * {
-  border: 1px solid blue;
-} */
+/* General */
+
 html {
   height: 100%;
   min-height: 100%;
@@ -24,6 +23,7 @@ body {
   height: 100%;
   margin: 0;
   min-height: 100%;
+  font-weight: 400;
 }
 
 main {
@@ -37,33 +37,83 @@ h1 {
 }
 
 h2 {
-  margin: 0;
-  margin-bottom: 1.5%;
   font-size: 30px;
   font-weight: lighter;
+  margin: 0;
+  margin-bottom: 1.5%;
 }
+
+h3 {
+  font-weight: 400;
+}
+
+/* Header */
 
 header {
   background-color: #46424D;
   padding: 2px;
   text-align: center;
+  z-index: 1;
 }
+
+/* Input Fields */
 
 input {
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #FFF;
+  outline: none;
   width: 100%;
+  outline: none;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-label {
+  margin-top: 10%;
+}
+
+input {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: lighter;
+}
+
+.time-input {
+  width: 300px;
+}
+
+/* Cards */
 
 .input-box {
   background-color: #46424D;
   box-shadow: 8px 8px #26222D;
   border-radius: 5px;
-  height: 500px;
+  min-height: 500px;
   padding: 5% 17% 8%;
   width: 100%;
 }
+
+/* Buttons */
 
 .activity-btn {
   background-color: #46424D;
@@ -71,44 +121,64 @@ input {
   border-radius: 4px;
   color: #FFF;
   font-size: 16px;
+  outline: none;
   padding: 10px;
   width: 150px;
 }
 
+/* .activity-line {
+  height: 30px;
+  border-right: 6px solid;
+  border-radius: 20%;
+}
+
+.completed-activity-box {
+  height: 100%;
+}
+
+.Study-category-color {
+  color: #B3FD78;
+}
+
+.Meditate-category-color {
+  color: #C278FD;
+}
+
+.Exercise-category-color {
+  color: #FD8078;
+}
+
 .input-label {
   margin-top: 10%;
-}
+} */
 
 .btn-section {
   display: flex;
   justify-content: space-between;
 }
 
+/* Category Button Colors */
+
 .study-active {
-  color: #B3FD78;
   border: 2px solid #B3FD78;
+  color: #B3FD78;
 }
 
 .meditate-active {
-  color: #C278FD;
   border: 2px solid #C278FD;
+  color: #C278FD;
 }
 
 .exercise-active {
-  color: #FD8078;
   border: 2px solid #FD8078;
+  color: #FD8078;
 }
 
 .btn-logo {
   background-color: #46424D;
   display: block;
-  width: 30px;
   margin: 0 auto;
-}
-
-/* make more responsive */
-.time-input {
-  width: 300px;
+  width: 30px;
 }
 
 .time-box {
@@ -117,29 +187,115 @@ input {
   margin-top: 7%;
 }
 
-/* make more responsive */
+.warning-box {
+  margin-top: 2%;
+}
+
+/* Warnings */
+
+.warning-img {
+  display: inline;
+  width: 20px;
+}
+
+.warning-text {
+  color: #EFB7EC;
+  display: inline;
+}
+
+.start-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Timer */
+
+.timer-input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-description {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.activity-time {
+  font-size: 50px;
+  font-weight: 700;
+}
+
 .start-btn {
   border-radius: 5px;
   border: none;
   color: #46424D;
   font-size: 20px;
-  margin: 10% 68%;
+  margin-top: 8%;
   padding: 9px;
   width: 225px;
+}
+
+.start-timer-btn {
+  background-color: transparent;
+  border-radius: 50%;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: lighter;
+  height: 200px;
+  width: 200px;
+}
+
+.start-timer-btn:hover {
+  background-color: #615f66;
 }
 
 .left-box {
   width: 49%;
 }
 
+.log-activity-button {
+  border-radius: 5px;
+  border: none;
+  color: #46424D;
+  font-size: 20px;
+  margin-top: 8%;
+  padding: 9px;
+  width: 255px;
+}
+
+/* Add New */
+
+.completed-activity-box {
+  display: flex;
+  justify-content: center;
+}
+
+.create-new-btn {
+  border-radius: 5px;
+  border: none;
+  color: #46424D;
+  font-size: 20px;
+  height: 40px;
+  margin-top: 8%;
+  padding: 9px;
+  width: 350px;
+}
+
+/* Vertical Line */
+
 .vertical-line {
-  width: 3px;
   background-color: #46424D;
-  position: absolute;
-  top: 0;
   bottom: 0;
   left: 68%;
+  position: absolute;
+  top: 0;
+  width: 3px;
+  z-index: -1;
 }
+
+/* Right Box */
 
 .right-box {
   height: 100%;
@@ -148,5 +304,56 @@ input {
 }
 
 .past-activities {
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+
+/* Logged Activity Cards */
+
+.logged-activity {
+  background: #46424D;
+  padding: 10px 30px;
+  margin: 30px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  box-shadow: 3px 3px 10px #26222D;
+  border-radius: 10px;
+}
+
+.activity-line {
+  border-radius: 8px;
+  max-height: 20px;
+}
+
+.Study-category-color {
+  border: 4px solid #B3FD78;
+}
+
+.Meditate-category-color {
+  border: 4px solid #C278FD;
+}
+
+.Exercise-category-color {
+  border: 4px solid #FD8078;
+}
+
+/* Media Queries and Hidden */
+
+@media only screen and (max-width: 1300px) {
+  .time-input {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .time-input {
+    width: 100px;
+  }
+}
+
+.hidden {
+  display: none;
 }
