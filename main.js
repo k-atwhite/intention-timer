@@ -118,8 +118,9 @@ function startActivity() {
 }
 
 function displayTimerBox() {
-  homeView.classList.add('hidden');
+  // homeView.classList.add('hidden');
   timerBox.classList.remove('hidden');
+  leftBox.classList.add('hidden');
   changeTimerBorder();
   displayTime();
 }
@@ -190,6 +191,6 @@ function displayHomeView() {
   startTimerBtn.innerText = 'START';
   startTimerBtn.removeAttribute('disabled');
   createNewActivity.classList.add('hidden');
-  homeView.classList.remove('hidden');
+  leftBox.classList.remove('hidden');
   logActivityBtn.classList.add('hidden');
 }

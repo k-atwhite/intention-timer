@@ -89,6 +89,14 @@ input[type=number] {
   width: 100%;
 }
 
+.timer-input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%
+}
+
 .activity-btn {
   background-color: #46424D;
   border: 2px solid #FFF;
@@ -104,6 +112,10 @@ input[type=number] {
   height: 30px;
   border-right: 6px solid;
   border-radius: 20%;
+}
+
+.completed-activity-box {
+  height: 100%;
 }
 
 .Study-category-color {
@@ -183,13 +195,6 @@ input {
 .start-box {
   display: flex;
   justify-content: flex-end;
-}
-
-.timer-input-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .activity-description {
