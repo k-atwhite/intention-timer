@@ -8,7 +8,6 @@ class Activity {
     this.timePassed = 0;
     this.completed = false;
     this.id = Date.now();
-
   }
 
   startTimer() {
