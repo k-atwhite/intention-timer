@@ -1,3 +1,6 @@
+var currentActivity;
+var savedActivities = [];
+
 var btnSection = document.querySelector('#btnSection');
 // Activity Btns
 var studyBtn = document.querySelector('#studyBtn');
@@ -38,10 +41,11 @@ var createNewActivityBtn = document.querySelector('#createNewBtn');
 var homeView = document.querySelector('#homeView');
 
 
-var currentActivity;
-var savedActivities = [];
 
 //button does not hear 'click' on logo
+
+//window.addEventListener('load', displayPreviousActivity);
+
 btnSection.addEventListener('click', function(event) {
   changeButtonColor(event);
 });
@@ -54,7 +58,8 @@ startTimerBtn.addEventListener('click', function() {
 
 logActivityBtn.addEventListener('click', function() {
   currentActivity.saveToStorage();
-  loadActivityCard();
+  displayPreviousActivity();
+  createNewActivityView();
 });
 
 createNewActivityBtn.addEventListener('click', displayHomeView);
@@ -113,8 +118,10 @@ function checkInputValues() {
 function startActivity() {
   var activityCategory = currentActivity;
   currentActivity = new Activity(activityCategory, accomplishmentInput.value, minutesInput.value, secondsInput.value);
-  savedActivities.push(currentActivity);
+  currentActivity.saveToStorage();
+  // savedActivities.push(currentActivity);
   displayTimerBox();
+  displayPreviousActivity();
 }
 
 function displayTimerBox() {
@@ -135,6 +142,14 @@ function displayTime() {
   <h3 class="activity-description">${currentActivity.description}</h3>
   <p class="activity-time" id="timer">${minutes}:${seconds}</p>
   `;
+}
+
+function displayPreviousActivity() {
+  for (var i = 0; i < localStorage.length; i++) {
+    var storedActivity = localStorage.getItem(localStorage.key(i));
+    parsedActivity = JSON.parse(storedActivity)
+    loadActivityCard(parsedActivity);
+  }
 }
 
 function changeTimerBorder() {
@@ -162,14 +177,14 @@ function completedActivity() {
   logActivityBtn.classList.remove("hidden");
 }
 
-function loadActivityCard() {
+function loadActivityCard(parsedActivity) {
   defaultActivityText.classList.add('hidden');
   pastActivitiesBox.innerHTML += `
-    <article class="logged-activity" id="${currentActivity.id}">
-      <div class="${currentActivity.category}-category-color activity-line"></div>
+    <article class="logged-activity" id="${parsedActivity.id}">
+      <div class="${parsedActivity.category}-category-color activity-line"></div>
       <div>
-        <h4>${currentActivity.category}</h4>
-        <p class="time-description">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+        <h4>${parsedActivity.category}</h4>
+        <p class="time-description">${parsedActivity.minutes} MIN ${parsedActivity.seconds} SECONDS</p>
         <p>${currentActivity.description}</p>
       </div>
     </article>

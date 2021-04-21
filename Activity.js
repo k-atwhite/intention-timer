@@ -31,6 +31,8 @@ class Activity {
   }
 
   saveToStorage() {
-
+    var stringCurrentActivity = JSON.stringify(this) // Pass this in below as newData param...play with this
+    localStorage.setItem(this.id, stringCurrentActivity); // dynamic key?...because each item that is saved needs to be different
+    savedActivities.push(stringCurrentActivity);
   }
 }
