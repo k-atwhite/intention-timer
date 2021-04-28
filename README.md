@@ -26,7 +26,7 @@ The app will log that activity to keep track of how the user has been spending t
 * [Kat White](https://github.com/k-atwhite)
 
 ## How to use the app
-### [View in your browser!](https://e-spitz.github.io/intention-timer/)
+### [View in your browser!](https://k-atwhite.github.io/intention-timer/)
 
 https://user-images.githubusercontent.com/49215782/115474237-4b2bf500-a1fa-11eb-8577-e32b9af08c11.mp4
 
